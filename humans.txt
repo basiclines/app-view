@@ -1,0 +1,21 @@
+ /* TEAM */
+Borja Salguero / UI Developer
+...
+...
+...
+
+Ismael González / UI Developer
+basiclines.com / ismael@basiclines.com
+@basiclines
+Madrid, Spain
+
+
+/* THANKS */
+Icons: http://thenounproject.com/
+Idea improves: Daniel Mota Leiva / @icebeat
+
+
+/* SITE */
+Last update: YYYY/MM/DD
+Standards: HTML5, CSS3,..
+Software: Sublime text 2, Aptana, Firefox Aurora
