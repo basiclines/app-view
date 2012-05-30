@@ -5,14 +5,19 @@
 
 		<title>Commslog example</title>
 
+		<!-- VIEWPORT TAGS -->
+		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+
 		<!-- HUMAN -->
 		<link rel="author" href="humans.txt" />
 
 		<!-- FW CSS -->
 		<link rel="stylesheet" href="css/fw/bootzilla.css">
+		<link rel="stylesheet" href="css/fw/layout.css">
 		<link rel="stylesheet" href="css/fw/icons.css">
-		<link rel="stylesheet" href="css/fw/app.css">
 		<link rel="stylesheet" href="css/fw/components.css">
+		<link rel="stylesheet" href="css/fw/app.css">
 
 		<!-- APP CSS -->
 		<link rel="stylesheet" href="css/commslog.css">
@@ -22,17 +27,36 @@
 
 		<section class="view">
 			<header class="vw-header">
-
+				<div class="pull-right vw-hdr-actions"><a href="#" class="action">Edit</a></div>
+				<h1>Timeline</h1>
 			</header>
 
+			<nav class="tabs">
+				<button class="pull-right">
+					<i class="i-search"></i>
+				</button>
+				<div class="itm-body-exp">
+					<ul class="grid">
+						<li><a href="#"><strong>All</strong></a></li>
+						<li><a href="#"><i class="i-phone">Calls</i></a></li>
+						<li><a href="#"><i class="i-voice">Voice messages</i></a></li>
+						<li><a href="#"><i class="i-message">Text messages</i></a></li>
+					</ul>
+				</div>
+			</nav>
+
 			<article class="vw-body">
-				<h2>Some heading</h2>
-				<p>Some content</p>
+				
 			</article>
 
-			<footer class="vw-header">
-
-			</footer>
+			<nav class="vw-nav vw-nav-labeled">
+				<ul class="grid">
+					<li><a href="#" title="All"><i class="i-clock">All</i></a></li>
+					<li><a href="#" title="You"><i class="i-user">User interactions</i></a></li>
+					<li><a href="#" title="Messages"><i class="i-message">Messages</i></a></li>
+					<li><a href="#" title="Calls"><i class="i-phone">Calls</i></a></li>
+				</ul>
+			</nav>
 		</section>
 
 	</body>

@@ -2,3 +2,72 @@
  * COMPONENTS.CSS
  * Low level structures for creating responsive UI
  * ------------------------------------------------------*/
+ 
+/* HELPERS: Small layout workers; */
+.pull-right { float: right; }
+.pull-left { float: left; }
+
+
+ /* ITEM: The smallest complete structure; */
+.item {  } 
+	.item:before, .item:after { content: ""; display: table; } 
+	.item:after { clear: both; }
+
+ 	.itm-media { float: left; }
+ 	.itm-body { display: table; }
+ 	.itm-body-exp { display: block; overflow: hidden; }
+
+
+/* GRID: Used only as a row; */
+ .grid {
+ 	width: 100%;
+ 	max-width: 32rem;
+ 	
+ 	display: -moz-box;
+ 	-moz-box-orient: horizontal;
+ 	
+ 	display: -webkit-box;
+ 	-webkit-box-orient: horizontal;
+
+	-moz-box-pack: center;
+	-webkit-box-pack: center;
+
+	-moz-box-align: center;
+	-webkit-box-align: center;
+ }
+ .grd-vertical { -moz-box-orient: vertical; -webkit-box-orient: vertical; }
+ 	.grid > * { -moz-box-flex: 1; -webkit-box-flex: 1; height: 100%; }
+
+
+
+/* TABS: requires .grid for managing the layout; */
+.tabs { background: #e8e8e8; padding: 0.8rem; }
+	.tabs .pull-right { margin-left: 0.8rem; }
+	.tabs li { background: #333; border-right: solid 1px rgba(255, 255, 255, 0.15); }
+	.tabs li:first-child { border-radius: 0.8rem 0 0 0.8rem; }
+	.tabs li:last-child { border-radius: 0 0.8rem 0.8rem 0; }
+		.tabs a { display: block; color: #fff; }
+			.tabs a strong { vertical-align: middle; }
+			.tabs a:after {
+				content: "";
+				display: inline-block;
+				vertical-align: middle;
+				width: 1px;
+				height: 3rem;
+				margin-left: -1px;
+			}
+
+
+/* BUTTON TYPES */
+.action {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0 0.4rem;
+	font-size: 1.2rem;
+	border-radius: 0.4rem;
+	background: rgba(0, 0, 0, 0.5);
+	color: rgba(255, 255, 255, 0.9);
+	border: solid 1px rgba(0, 0, 0, 0.2);
+}
+	.action:hover { text-decoration: none; }
+	.action:active { opacity: 0.8;}

@@ -4,10 +4,14 @@
  * Also has some basic styles for inheritance.
  * ------------------------------------------------------*/
 
+/* Hidden elements */
+.hide { display: none!important }
+.unb-hide { font-size: 0/0 a!important; }
+
 /*Base font */
 html, body { height: 100%; }
 html { font-size: 10px;  }
-body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; color: #fff; font: 1.3rem/1.6rem Open Sans, Sans-serif, Helvetica, Arial; text-align: center; vertical-align: middle; }
+body { margin: 0; padding: 0; overflow: hidden; background: #000; color: #fff; font: 1.6rem/2.2rem Open Sans, Sans-serif, Helvetica, Arial; text-align: center; vertical-align: middle; }
 
 
 /* Text conventions */
@@ -28,9 +32,8 @@ small { font: 1.1rem/1rem Open Sans, Sans-serif, Helvetica, Arial color: #999; }
 
 
 /* Links */
-a { text-decoration: none; outline: none; color: #0077BB; }
-a:hover { text-decoration: underline; }
-a:active { color: #0077BB; }
+a { text-decoration: none; outline: none; color: #ff4e00; }
+a:hover { text-decoration: none; }
 a img { border: none; }
 a abbr { cursor: pointer; }
 
@@ -53,7 +56,7 @@ form { margin: 0; }
 fieldset { margin: 0; padding: 0; border: none; }
 legend { padding: 0; display: block; width: 0; height: 0; overflow: hidden; font: 0/0 a; }
 
-button { height: auto; width: auto; overflow: visible; display: inline-block; vertical-align: middle; background: none; border: none; outline: none; font: 1.1rem/13rem Open Sans, Sans-serif, Helvetica, Arial;
+button { height: auto; width: auto; overflow: visible; display: inline-block; vertical-align: middle; background: none; border: none; outline: none; font: 1.1rem/1.3rem Open Sans, Sans-serif, Helvetica, Arial;
 ; color: #666; white-space: nowrap; cursor: pointer; }
 button::-moz-focus-inner { padding: 0; border: none; }
 
