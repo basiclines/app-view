@@ -1,42 +1,70 @@
 //RESIZE.JS
 
-$(function() {
-
-	//BASE 
-	var base_font = 62.5;
-	var base_width = 320;
-	var base_height = 480;
-	var base_ratio = base_height / base_width;
-	var correction_value = 4;
-
-
-	//DEVICE
-	var device_width = $(document).width();
-	var device_height = $(document).height();
-	var device_ratio = device_height / device_width;
-
-
-	if ( base_width < device_width ) {
-
-		var scale_ratio = base_width / device_width;
-
-		// Chek for non base ratio devices
-		if ( base_ratio < device_ratio ) {
-			// console.log("base: " + base_height / base_width +" device: "+ device_height / device_width )
-			var correction_value = correction_value - (scale_ratio * correction_value / 2);
-		}
-
-		var font_size = scale_ratio * base_font * correction_value; 
-
-		// console.log("---")
-		// console.log(device_width +" / "+ device_height);
-		// console.log(scale_ratio);
-		// console.log(base_ratio +"  / "+ device_ratio);
-		// console.log(font_size);
-		// console.log(correction_value);
-
-		$("html").css("font-size",  font_size+"%");
-		// $("html").css("-moz-transform", "scale("+scale_ratio+")");
-
+//Base set-up
+base =  {
+	font: 62.5,
+	width: 320,
+	height: 480,
+	correction: 4,
+	ratio: function () {
+		 return this.height / this.width;
 	}
+};
+
+//Device info
+device =  {
+	width: function () {
+		return window.innerWidth;
+	},
+	height: function () {
+		return window.innerHeight;
+	},
+	ratio: function () {
+		var raw = this.height() / this.width();
+		var fragment = function () {
+			if ( raw.toString().split(".")[1] == undefined ) {
+				return 0;
+			} else {
+				return raw.toString().split(".")[1].charAt(0);
+			}
+		};
+		var aprox = parseFloat(raw.toString().split(".")[0] + "." +fragment());
+
+		return aprox;
+	}
+}
+
+//Scale function
+scale =  (function (){
+	
+	var scale_ratio = base.width / device.width();
+	var correction_value = base.correction;
+
+	// Chek for non base ratio devices
+	if ( base.ratio() < device.ratio() ) {
+		var correction_value = base.correction - (scale_ratio * base.correction / 2);
+	}
+
+	var root = document.getElementsByTagName("html")[0];
+	var font_size = base.font;
+
+	//Check for bigger devices
+	if (  base.width < device.width() ) {
+		var font_size = scale_ratio * base.font * correction_value; 
+	}
+
+	//Check for smaller devices
+	if ( base.width > device.width() ) {
+		var font_size = scale_ratio * base.font * base.correction / 6; 
+	}
+
+	root.style.fontSize = font_size+"%";
+
+});
+
+//Add scale in window load event
+window.addEventListener("load", function (e) {
+
+	scale();
+
 });
