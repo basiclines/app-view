@@ -49,14 +49,6 @@ device =  {
 scale =  (function (){
 	
 	var scale_ratio = decimal_split(device.width() / base.width );
-
-	var correction_value = base.correction;
-
-	// Chek for non base ratio devices
-	// if ( base.ratio() < device.ratio() ) {
-	// 	var correction_value = base.correction - (scale_ratio * base.correction / 2);
-	// }
-
 	var root = document.getElementsByTagName("html")[0];
 	var font_size = base.font;
 
@@ -71,15 +63,13 @@ scale =  (function (){
 	}
 
 
-
 	var font_size = decimal_split(font_size);
-
 	root.style.fontSize = font_size+"%";
 
-	console.log("-.-.-.-.-.-.-.-.-.-.-.");
-	console.log(font_size + " font");
-	console.log(scale_ratio + " scale up ratio");
-	console.log(device.width() + " / " + device.height() + " device");
+	// console.log("-.-.-.-.-.-.-.-.-.-.-.");
+	// console.log(font_size + " font");
+	// console.log(scale_ratio + " scale up ratio");
+	// console.log(device.width() + " / " + device.height() + " device");
 
 });
 
