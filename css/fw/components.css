@@ -21,7 +21,6 @@
 /* GRID: Used only as a row; */
  .grid {
  	width: 100%;
- 	max-width: 32rem;
  	
  	display: -moz-box;
  	-moz-box-orient: horizontal;
