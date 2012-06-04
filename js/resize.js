@@ -25,7 +25,7 @@ base =  {
 	font: 62.5,
 	width: 320,
 	height: 480,
-	correction: 4,
+	pixel: 1,
 	ratio: function () {
 		 return this.height / this.width;
 	}
@@ -38,6 +38,13 @@ device =  {
 	},
 	height: function () {
 		return window.innerHeight;
+	},
+	pixel: function () {
+		if ( window.devicePixelRatio !== undefined ) {
+			return window.devicePixelRatio;
+		} else {
+			return base.pixel;
+		}
 	},
 	ratio: function () {
 		var raw = this.height() / this.width();
@@ -62,28 +69,15 @@ scale =  (function (){
 		var font_size = device.width() / 1000 * base.font;
 	}
 
-
 	var font_size = decimal_split(font_size);
 	root.style.fontSize = font_size+"%";
-
-	// console.log("-.-.-.-.-.-.-.-.-.-.-.");
-	// console.log(font_size + " font");
-	// console.log(scale_ratio + " scale up ratio");
-	// console.log(device.width() + " / " + device.height() + " device");
 
 });
 
 //Add scale to listeners
-window.addEventListener("load", function (e) { scale() });
-window.addEventListener("resize", function (e) { scale() });
-
-
-
-
-
-
-
-
-
-
-
+window.addEventListener("load", function (e) {
+	scale();
+});
+window.addEventListener("resize", function (e) {
+	scale();
+});
