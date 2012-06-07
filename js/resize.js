@@ -1,25 +1,5 @@
 //RESIZE.JS
 
-//Decimals split
-decimal_split = function ( number ) {
-
-	var fragment = function () {
-		if ( number.toString().split(".")[1] == undefined ) {
-			return 0;
-		} else {
-			var decimal_1 = number.toString().split(".")[1].charAt(0);
-			var decimal_2 = number.toString().split(".")[1].charAt(1);
-			var final_decimals = decimal_1 + decimal_2;
-
-			return final_decimals;
-		}
-	};
-
-	var aproximation = parseFloat(number.toString().split(".")[0] + "." +fragment());
-
-	return aproximation;
-};
-
 //Base set-up
 base =  {
 	font: 62.5,
@@ -55,7 +35,9 @@ device =  {
 //Scale function
 scale =  (function (){
 	
-	var scale_ratio = decimal_split(device.width() / base.width );
+	var scale_ratio = device.width() / base.width;
+	scale_ratio = scale_ratio.toFixed(2);
+
 	var root = document.getElementsByTagName("html")[0];
 	var font_size = base.font;
 
@@ -69,7 +51,7 @@ scale =  (function (){
 		var font_size = device.width() / 1000 * base.font;
 	}
 
-	var font_size = decimal_split(font_size);
+	var font_size = font_size.toFixed(2);
 	root.style.fontSize = font_size+"%";
 
 });
